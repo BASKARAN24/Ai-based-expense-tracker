@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Budget Prediction · Ledgerly AI</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/app-shell.css">
+</head>
+<body>
+
+  <div class="app-shell">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="logo"><span class="mark">₹</span> Ledgerly AI</div>
+
+      <div class="nav-group">
+        <a class="nav-item" href="/dashboard.html"><span class="dot"></span> Dashboard</a>
+        <a class="nav-item" href="/expenses.html"><span class="dot"></span> Expenses</a>
+        <a class="nav-item active" href="/budget.html"><span class="dot"></span> Budget Prediction</a>
+        <a class="nav-item" href="/investment.html"><span class="dot"></span> Investment Research</a>
+      </div>
+
+      <div class="nav-label">Account</div>
+      <div class="nav-item" id="logout-btn"><span class="dot"></span> Log out</div>
+
+      <div class="sidebar-footer">
+        <div class="user-chip">
+          <div class="avatar" id="user-avatar">A</div>
+          <div>
+            <div class="name" id="user-name">—</div>
+            <div class="email" id="user-email">—</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <main class="main" style="max-width: 720px;">
+      <div class="topbar">
+        <div>
+          <h1>AI Budget Predictor</h1>
+          <div class="sub">Projected from your last 3 months of real spending — not a generic template.</div>
+        </div>
+      </div>
+
+      <div class="card ai-panel" id="budget-card">
+        <span class="ai-badge">✦ AI Budget Predictor</span>
+        <div class="card-header">
+          <h3>Next month's projected spend</h3>
+        </div>
+        <div id="budget-panel-body">
+          <div class="skeleton" style="height:90px;"></div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <div id="toast"></div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/common.js"></script>
+  <script src="/js/budget.js"></script>
+</body>
+</html>

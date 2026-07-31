@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expenses · Ledgerly AI</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/app-shell.css">
+</head>
+<body>
+
+  <div class="app-shell">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="logo"><span class="mark">₹</span> Ledgerly AI</div>
+
+      <div class="nav-group">
+        <a class="nav-item" href="/dashboard.html"><span class="dot"></span> Dashboard</a>
+        <a class="nav-item active" href="/expenses.html"><span class="dot"></span> Expenses</a>
+        <a class="nav-item" href="/budget.html"><span class="dot"></span> Budget Prediction</a>
+        <a class="nav-item" href="/investment.html"><span class="dot"></span> Investment Research</a>
+      </div>
+
+      <div class="nav-label">Account</div>
+      <div class="nav-item" id="logout-btn"><span class="dot"></span> Log out</div>
+
+      <div class="sidebar-footer">
+        <div class="user-chip">
+          <div class="avatar" id="user-avatar">A</div>
+          <div>
+            <div class="name" id="user-name">—</div>
+            <div class="email" id="user-email">—</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <main class="main">
+      <div class="topbar">
+        <div>
+          <h1>Expenses</h1>
+          <div class="sub">Every transaction you've logged, newest first.</div>
+        </div>
+        <button class="btn btn-primary" id="add-expense-btn">+ Add expense</button>
+      </div>
+
+      <div class="card" id="ledger-card">
+        <div class="card-header">
+          <div>
+            <div class="card-eyebrow">Ledger</div>
+            <h3>All expenses</h3>
+          </div>
+        </div>
+        <div class="stub-divider"></div>
+        <table class="ledger-table">
+          <thead>
+            <tr><th>Date</th><th>Description</th><th>Category</th><th style="text-align:right">Amount</th><th></th></tr>
+          </thead>
+          <tbody id="ledger-body"></tbody>
+        </table>
+        <div class="empty-state" id="ledger-empty" style="display:none;">
+          No expenses yet. Add your first one to start building your ledger.
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Add/Edit expense modal -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal-box">
+      <h3 id="modal-title">Add expense</h3>
+      <form id="expense-form">
+        <div class="input-row">
+          <div class="field">
+            <label for="expense-amount">Amount (₹)</label>
+            <input type="number" id="expense-amount" min="0.01" step="0.01" required placeholder="0.00">
+          </div>
+          <div class="field">
+            <label for="expense-date">Date</label>
+            <input type="date" id="expense-date" required>
+          </div>
+        </div>
+        <div class="field">
+          <label for="expense-category">Category</label>
+          <select id="expense-category" required></select>
+        </div>
+        <div class="field">
+          <label for="expense-description">Description (optional)</label>
+          <input type="text" id="expense-description" placeholder="e.g. Weekly groceries">
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-outline" id="modal-cancel" style="flex:1;">Cancel</button>
+          <button type="submit" class="btn btn-primary" style="flex:1;">Save expense</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="toast"></div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/common.js"></script>
+  <script src="/js/expenses.js"></script>
+</body>
+</html>

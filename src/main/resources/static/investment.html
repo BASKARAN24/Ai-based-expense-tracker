@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Investment Research · Ledgerly AI</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/app-shell.css">
+</head>
+<body>
+
+  <div class="app-shell">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="logo"><span class="mark">₹</span> Ledgerly AI</div>
+
+      <div class="nav-group">
+        <a class="nav-item" href="/dashboard.html"><span class="dot"></span> Dashboard</a>
+        <a class="nav-item" href="/expenses.html"><span class="dot"></span> Expenses</a>
+        <a class="nav-item" href="/budget.html"><span class="dot"></span> Budget Prediction</a>
+        <a class="nav-item active" href="/investment.html"><span class="dot"></span> Investment Research</a>
+      </div>
+
+      <div class="nav-label">Account</div>
+      <div class="nav-item" id="logout-btn"><span class="dot"></span> Log out</div>
+
+      <div class="sidebar-footer">
+        <div class="user-chip">
+          <div class="avatar" id="user-avatar">A</div>
+          <div>
+            <div class="name" id="user-name">—</div>
+            <div class="email" id="user-email">—</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <main class="main" style="max-width: 720px;">
+      <div class="topbar">
+        <div>
+          <h1>Investment Research Agent</h1>
+          <div class="sub">Ask about a market, sector, or asset class for a quick AI-generated summary.</div>
+        </div>
+      </div>
+
+      <div class="card ai-panel" id="investment-card">
+        <span class="ai-badge">✦ Investment Research Agent</span>
+        <div class="card-header">
+          <h3>Market news & trends</h3>
+        </div>
+
+        <div class="research-topics">
+          <button type="button" class="topic-chip" data-topic="Indian equity market">Indian equities</button>
+          <button type="button" class="topic-chip" data-topic="US technology stocks">US tech stocks</button>
+          <button type="button" class="topic-chip" data-topic="Gold and commodities">Gold & commodities</button>
+          <button type="button" class="topic-chip" data-topic="Cryptocurrency market">Crypto</button>
+        </div>
+
+        <form id="research-form" class="research-form">
+          <input type="text" id="research-topic" placeholder="e.g. renewable energy stocks">
+          <button type="submit" id="research-submit" class="btn btn-outline">Research</button>
+        </form>
+
+        <div class="research-result" id="research-result">
+          Pick a topic above or type your own to get an AI market summary.
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <div id="toast"></div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/common.js"></script>
+  <script src="/js/investment.js"></script>
+</body>
+</html>

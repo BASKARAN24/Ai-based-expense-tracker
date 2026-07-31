@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard · Ledgerly AI</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/app-shell.css">
+</head>
+<body>
+
+  <div class="app-shell">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="logo"><span class="mark">₹</span> Ledgerly AI</div>
+
+      <div class="nav-group">
+        <a class="nav-item active" href="/dashboard.html"><span class="dot"></span> Dashboard</a>
+        <a class="nav-item" href="/expenses.html"><span class="dot"></span> Expenses</a>
+        <a class="nav-item" href="/budget.html"><span class="dot"></span> Budget Prediction</a>
+        <a class="nav-item" href="/investment.html"><span class="dot"></span> Investment Research</a>
+      </div>
+
+      <div class="nav-label">Account</div>
+      <div class="nav-item" id="logout-btn"><span class="dot"></span> Log out</div>
+
+      <div class="sidebar-footer">
+        <div class="user-chip">
+          <div class="avatar" id="user-avatar">A</div>
+          <div>
+            <div class="name" id="user-name">—</div>
+            <div class="email" id="user-email">—</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <main class="main">
+      <div class="topbar">
+        <div>
+          <h1>Welcome back, <span id="greeting-name">there</span></h1>
+          <div class="sub">Here's how your spending is shaping up.</div>
+        </div>
+        <a href="/expenses.html" class="btn btn-primary">+ Add expense</a>
+      </div>
+
+      <!-- Stats -->
+      <div class="stat-grid">
+        <div class="card stat-card">
+          <div class="stat-label">Total spent</div>
+          <div class="stat-value mono" id="stat-total">₹0.00</div>
+        </div>
+        <div class="card stat-card">
+          <div class="stat-label">This month</div>
+          <div class="stat-value mono" id="stat-month">₹0.00</div>
+        </div>
+        <div class="card stat-card">
+          <div class="stat-label">Transactions</div>
+          <div class="stat-value mono" id="stat-count">0</div>
+        </div>
+        <div class="card stat-card">
+          <div class="stat-label">Top category</div>
+          <div class="stat-value" id="stat-top-category" style="font-size:18px;">—</div>
+        </div>
+      </div>
+
+      <!-- Chart + recent activity -->
+      <div class="grid-2col">
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-eyebrow">Breakdown</div>
+              <h3>Spend by category</h3>
+            </div>
+          </div>
+          <div class="stub-divider"></div>
+          <div class="chart-wrap">
+            <canvas id="expense-chart"></canvas>
+            <div class="empty-state" id="chart-empty" style="display:none;">No expenses yet.</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-eyebrow">Ledger</div>
+              <h3>Recent activity</h3>
+            </div>
+            <a href="/expenses.html" class="link-more">View all →</a>
+          </div>
+          <div class="stub-divider"></div>
+          <div class="mini-list" id="recent-list"></div>
+          <div class="empty-state" id="recent-empty" style="display:none;">
+            No expenses yet. <a href="/expenses.html">Add your first one</a>.
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick links to AI features -->
+      <div class="grid-2col">
+        <a href="/budget.html" class="card ai-panel" style="display:block; text-decoration:none;">
+          <span class="ai-badge">✦ AI Budget Predictor</span>
+          <h3 style="margin-top:4px;">See your projected next month</h3>
+          <p style="font-size:13.5px; color:var(--muted); margin-top:8px;">
+            AI-projected spend per category based on your last 3 months, plus a quick insight on where to trim.
+          </p>
+        </a>
+
+        <a href="/investment.html" class="card ai-panel" style="display:block; text-decoration:none;">
+          <span class="ai-badge">✦ Investment Research Agent</span>
+          <h3 style="margin-top:4px;">Check market news & trends</h3>
+          <p style="font-size:13.5px; color:var(--muted); margin-top:8px;">
+            Ask about a market, sector, or asset class and get a quick AI-generated summary.
+          </p>
+        </a>
+      </div>
+    </main>
+  </div>
+
+  <div id="toast"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <script src="/js/api.js"></script>
+  <script src="/js/common.js"></script>
+  <script src="/js/overview.js"></script>
+</body>
+</html>

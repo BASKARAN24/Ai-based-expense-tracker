@@ -1,0 +1,114 @@
+.auth-shell {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+@media (max-width: 860px) {
+  .auth-shell { grid-template-columns: 1fr; }
+  .auth-brand { display: none; }
+}
+
+/* ---------- Left brand panel ---------- */
+.auth-brand {
+  background: var(--ink);
+  color: #fff;
+  padding: 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+.auth-brand .logo {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.auth-brand .logo .mark {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: var(--growth);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+}
+
+.auth-brand .pitch {
+  max-width: 380px;
+}
+.auth-brand .pitch h1 {
+  color: #fff;
+  font-size: 34px;
+  line-height: 1.25;
+  margin-bottom: 14px;
+}
+.auth-brand .pitch p {
+  color: #A9B1C9;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* Receipt-stub stack illustration */
+.stub-stack { margin-top: 28px; }
+.stub-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: var(--radius-md);
+  padding: 16px 18px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.stub-card .label { font-size: 13px; color: #C4CAE0; }
+.stub-card .amount { font-family: var(--font-mono); font-size: 15px; color: #fff; }
+.stub-card .amount.pos { color: #6FD9AF; }
+.stub-card .amount.neg { color: #F0A868; }
+
+.auth-brand .footer-note {
+  font-size: 12px;
+  color: #7C86A6;
+}
+
+/* ---------- Right form panel ---------- */
+.auth-form-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+}
+.auth-form-box { width: 100%; max-width: 380px; }
+.auth-form-box .form-title { font-size: 26px; margin-bottom: 6px; }
+.auth-form-box .form-sub { color: var(--muted); font-size: 14px; margin-bottom: 28px; }
+
+.auth-switch {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 13.5px;
+  color: var(--muted);
+}
+
+.mobile-logo {
+  display: none;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 28px;
+  align-items: center;
+  gap: 8px;
+}
+.mobile-logo .mark {
+  width: 26px; height: 26px; border-radius: 7px;
+  background: var(--growth); display: inline-flex;
+  align-items: center; justify-content: center; font-size: 13px; color: #fff;
+}
+@media (max-width: 860px) {
+  .mobile-logo { display: inline-flex; }
+}
